@@ -352,7 +352,7 @@ export class HomepageComponent implements OnInit {
 
 
 
-  categories = ['Infographic', 'Art', 'Posters', 'Posts', 'Prints', 'Ai'];
+  categories = ['Infographic', 'Art', 'Posters', 'Posts', 'Prints'];
   selectedCategory = 'Infographic';
 
   // contact
