@@ -1,0 +1,20 @@
+<div class="body">
+  <nav class="nav">
+    <div class="menu-toggle" (click)="toggleMenu()" [class.active]="menuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" [class.active]="menuOpen">
+      <div class="left-links">
+        <li><a [routerLink]="['/']" fragment="about" (click)="closeMenu()">About Me</a></li>
+      <li><a [routerLink]="['/']" fragment="service" (click)="closeMenu()">Service</a></li>
+    </div>
+    <div class="right-links">
+      <li><a [routerLink]="['/']" fragment="portfolio" (click)="closeMenu()">Portfolio</a></li>
+      <li><a [routerLink]="['/']" fragment="contact" (click)="closeMenu()">Contact</a></li>
+      </div>
+    </ul>
+  </nav>
+</div>

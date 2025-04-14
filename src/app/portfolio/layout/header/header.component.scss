@@ -1,0 +1,132 @@
+* {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background: var(--main);
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 0px 100px;
+}
+
+.nav-links {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.left-links, .right-links{
+  display:flex;
+  gap: 50px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--yellow);
+  font-weight: 500;
+  font-size: 20px;
+  font-weight: 300;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.nav-links li a:hover {
+  color: var(--white);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-self: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: var(--yellow);
+  border-radius: 5px;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media screen and (max-width: 768px) {
+  .body{
+    justify-content: center;
+
+  }
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 90%;
+  padding: 0px 0px;
+
+
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: var(--light-green);
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    border-radius: 20px;
+    border: 0.5px solid var(--yellow);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}

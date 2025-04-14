@@ -1,0 +1,359 @@
+<div class="hero-section">
+  <img src="../../../assets/images/Section one.png" alt="background" class="hero-image" />
+
+  <div class="texts">
+  <div class="content">
+    <h1>Hello<span>.</span></h1>
+    <h2>I am Ahmed Mrkn</h2>
+    <p>Professional Graphic Designer</p>
+    <button (click)="downloadCV()" class="btn"><i class="fa-solid fa-download"></i> Download CV</button>
+  </div>
+
+  <div class="info">
+    <p>
+      Graphic Designer, Artist, and Figma Designer in Jeddah, Saudi Arabia.
+      I've developed a diverse skill set that allows me to approach design
+      with creativity and precision.
+    </p>
+    <a href="#">Let's Talk →</a>
+  </div>
+</div>
+</div>
+
+<hr class="separator">
+
+<section #about id="about" class="biography-section">
+  <h3 class="bio">BIOGRAPHY</h3>
+  <h2 class="bio2">Who am I?</h2>
+
+  <div class="bio-content">
+      <div class="bio-image">
+          <img src="../../../assets/images/Ahmed Image.png" alt="Ahmed Mrkn">
+      </div>
+      <div class="bio-details">
+          <div class="divider"></div>
+          <h4>About Me</h4>
+          <h3>Ahmed Mrkn Details</h3>
+          <p>
+              A 28-year-old graphic designer and artist. My journey in design started when I pursued
+              my bachelor's degree in Jordan, where I laid a strong foundation in both traditional and
+              digital art. Over the years, I've developed a diverse skill set that allows me to approach
+              design with creativity and precision. Currently, I'm pursuing my master’s degree at the
+              University of the People in the U.S.
+          </p>
+
+          <div class="bio-info">
+              <div class="info-box">
+                  <span>Name</span>
+                  <a>Ahmed Mrkn</a>
+              </div>
+              <div class="info-box">
+                <span>Email</span>
+                <a href="mailto:mrknahmed@gmail.com">mrknahmed&#64;gmail.com</a>
+            </div>
+            <div class="info-box">
+                <span>Address</span>
+               <a href="https://www.google.com/maps/search/?q=Jeddah+Saudi+Arabia" target="_blank">Jeddah, Saudi Arabia</a>
+            </div>
+            <div class="info-box">
+                <span>Phone</span>
+                <a href="tel:+966595992529">+966 59 599 2529</a>
+            </div>
+          </div>
+
+          <div class="download-btn">
+            <button (click)="downloadCV()">
+              <i class="fa-solid fa-download"></i> Download CV
+            </button>
+          </div>
+
+      </div>
+  </div>
+</section>
+
+<section #service id="service" class="what-i-do">
+  <h3>SERVICE</h3>
+  <h1>What I Do?</h1>
+
+  <div class="services">
+    <div class="card">
+      <h2>01.<br /><span>Graphic Design</span></h2>
+      <p>
+        I create visually compelling designs that balance creativity and functionality, delivering
+        solutions tailored to both digital and print media. My expertise ranges from branding to
+        marketing materials, ensuring a strong powerful and cohesive visual identity.
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card">
+      <h2>02.<br /><span>Figma Design</span></h2>
+      <p>
+        I specialize in creating intuitive and user-friendly digital interfaces using Figma. From
+        wireframes I focus on designing interactive experiences that align with user needs and
+        business goals.
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card highlight">
+      <h2>03.<br /><span>Art & illustration</span></h2>
+      <p>
+        My artistic work combines traditional techniques with modern styles, offering custom
+        illustrations and expressive art pieces. I bring concepts to life with detailed imagery
+        that conveys both emotion and message.
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="card">
+      <h2>04.<br /><span>Photography</span></h2>
+      <p>
+        With a keen eye for detail, I capture moments and scenes that tell a story. My photography
+        work spans from portraits to landscapes, blending creativity with technical skill to
+        produce impactful visuals.
+      </p>
+      <div class="divider"></div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <h3>5+ Years Experience</h3>
+  <h1>My Skills</h1>
+  <div class="skills">
+    <div class="skill" *ngFor="let skill of skills">
+      <div class="progress-circle">
+        <svg>
+          <circle cx="50" cy="50" r="45"></circle>
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            [attr.stroke-dashoffset]="getDashOffset(skill.percent)"
+          ></circle>
+        </svg>
+        <img class="icon" src="{{skill.image}}">
+        <div class="percent">{{ skill.percent }}%</div>
+        <span>{{ skill.label }}</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section #portfolio id="portfolio" class="projects">
+  <div class="project-header">
+    <h3>PROTFOLIO</h3>
+    <h1>Latest Projects</h1>
+  </div>
+<div class="project-filter">
+  <ul>
+    <li *ngFor="let cat of categories"
+    [class.active]="cat === selectedCategory"
+    (click)="setSelectedCategory(cat)">
+  {{ cat }}
+</li>
+
+  </ul>
+</div>
+
+<div class="project-display">
+  <ng-container *ngIf="selectedCategory === 'Infographic'">
+    <div class="IGcontainer">
+      <div class="IGleft" (click)="changeIGIndex(-1)">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+
+      <div class="IGcards">
+        <div
+          class="IGcard"
+          *ngFor="let ig of currentIGSet; let i = index"
+          [ngClass]="getIGCardClass(currentIGIndex + i)"
+          (click)="openModal(ig.image, 'Infographic')"
+        >
+          <img [src]="ig.image" alt="Infographic" />
+        </div>
+      </div>
+
+      <div class="IGright" (click)="changeIGIndex(1)">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+  </ng-container>
+
+  <div id="myModal" class="modal" [ngStyle]="{'display': isModalOpen ? 'block' : 'none'}">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <img class="modal-content" [src]="modalImageUrl" [alt]="modalImageAlt" />
+  </div>
+
+    <ng-container *ngIf="selectedCategory === 'Art' && currentArt"> <div class="art-container">
+      <div class="art-navigation">
+        <div class="arrow-left" (click)="changeArtIndex(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+      </div>
+      <div class="art-display">
+        <div class="art-text" [class.fade-slide-in]="applyAnimation">
+          <div class="art-header">
+            <span class="art-number">{{ currentArt.id }}</span>
+            <span class="art-name">{{ currentArt.name }}</span>
+          </div>
+          <p>{{ currentArt.description }}</p>
+        </div>
+        <img [src]="currentArt.image" alt="{{ currentArt.name }}" [class.fade-in]="applyAnimation" (click)="openModal(currentArt.image, 'Art')"/>
+      </div>
+      <div class="art-navigation">
+        <div class="arrow-right" (click)="changeArtIndex(1)">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedCategory === 'Posters'">
+    <div class="Posterscontainer">
+      <div class="Postersleft" (click)="changePostersIndex(-1)">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+
+      <div class="Posterscards" >
+        <div
+          class="Posterscard"
+          *ngFor="let Poster of currentPostersSet; let i = index"
+          [ngClass]="getPosterCardClass(currentPosterIndex + i)"
+
+        >
+          <img [src]="Poster.image" alt="Poster" (click)="openModal(Poster.image, 'Poster')"/>
+        </div>
+      </div>
+
+      <div class="Postersright" (click)="changePostersIndex(1)">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="selectedCategory === 'Posts'">
+    <div class="posts-container" [class.expanded]="showAllPosts">
+      <img
+        *ngFor="let post of displayedPosts; let i = index"
+        [src]="post.image"
+        alt="Social Post {{ i + 1 }}"
+        class="social-post-image"
+        (click)="openModal(post.image, 'Social Post')"
+      />
+    </div>
+    <div
+      class="load-more"
+      *ngIf="Posts.length > initialCount && !showAllPosts"
+    >
+      <button (click)="loadMorePosts()">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+    <div class="show-less" *ngIf="showAllPosts && Posts.length > initialCount">
+             <button (click)="showLessPosts()">
+               <i class="fas fa-chevron-up"></i>
+             </button>
+           </div>
+  </ng-container>
+
+
+
+  <ng-container *ngIf="selectedCategory === 'Prints'">
+    <div class="prints-container" [class.expanded]="showAllPrints">
+      <div *ngFor="let print of displayedPrints; let i = index" class="print-item">
+        <img [src]="print.image" alt="Print" class="print-image" (click)="openModal(print.image, 'Print')">
+      </div>
+    </div>
+    <div
+      class="load-more"
+      *ngIf="Prints.length > initialPrintsToShow && !showAllPrints"
+    >
+      <button (click)="loadMorePrints()">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+    <div class="show-less" *ngIf="showAllPrints && Prints.length > initialPrintsToShow">
+      <button (click)="showLessPrints()">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </div>
+  </ng-container>
+</div>
+</section>
+
+<section #contact id="contact" class="contact-section">
+  <div class="contact-header">
+    <h3>CONTACT INFO</h3>
+    <h1>Get in Touch</h1>
+  </div>
+  <div class="contact-body">
+    <div class="contact-image">
+      <img src="../../../assets/images/Contact.png" alt="Contact Image">
+    </div>
+
+    <div class="contact-content">
+      <div class="divider"></div>
+
+      <div class="contact-details">
+        <p class="label2">Message</p>
+        <p class="contact-title">Write Me Something</p>
+
+        <p>
+          <span class="label">Call Me :</span>
+          <a class="contact-links" href="tel:+966595992529">+966 59 599 25 29</a>
+        </p>
+
+        <p>
+          <span class="label">E-mail :</span>
+          <a class="contact-links" href="mailto:mrknahmed@gmail.com">mrknahmed&#64;gmail.com</a>
+        </p>
+      </div>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+
+        <div class="form-group double">
+            <div>
+                <input class="input" type="text" placeholder="Name" formControlName="name">
+                <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error-message">
+                    <small *ngIf="name?.errors?.['required']">Name is required.</small>
+                </div>
+            </div>
+
+            <div>
+                <input class="input" type="email" placeholder="Email" formControlName="email">
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
+                    <small *ngIf="email?.errors?.['required']">Email is required.</small>
+                    <small *ngIf="email?.errors?.['email']">Please enter a valid email address.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input class="input" type="text" placeholder="Subject" formControlName="subject">
+        </div>
+
+        <div class="form-group">
+            <textarea class="input" placeholder="Example Text" formControlName="message"></textarea>
+            <div *ngIf="message?.invalid && (message?.dirty || message?.touched)" class="error-message">
+                 <small *ngIf="message?.errors?.['required']">Message is required.</small>
+            </div>
+        </div>
+
+        <div *ngIf="statusMessage" class="form-status"
+             [ngClass]="{'success': submissionStatus === 'success', 'error': submissionStatus === 'error'}">
+          {{ statusMessage }}
+        </div>
+
+        <button type="submit" class="send-button" [disabled]="isSubmitting || (contactForm.invalid && submissionStatus === 'error')">
+            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+        </button>
+
+    </form>
+
+
+    </div>
+  </div>
+</section>
