@@ -5,7 +5,7 @@
   <div class="content">
     <h1>Hello<span>.</span></h1>
     <h2>I am Ahmed Mrkn</h2>
-    <p>Professional Graphic Designer</p>
+    <p>Creative Designer</p>
     <button (click)="downloadCV()" class="btn"><i class="fa-solid fa-download"></i> Download CV</button>
   </div>
 
@@ -35,11 +35,14 @@
           <h4>About Me</h4>
           <h3>Ahmed Mrkn Details</h3>
           <p>
-              A 28-year-old graphic designer and artist. My journey in design started when I pursued
-              my bachelor's degree in Jordan, where I laid a strong foundation in both traditional and
-              digital art. Over the years, I've developed a diverse skill set that allows me to approach
-              design with creativity and precision. Currently, I'm pursuing my master’s degree at the
-              University of the People in the U.S.
+            A 30-year-old Graphic Designer and Artist, currently working as a
+             Graphic Design Department Manager. My journey in design began when
+              I pursued my bachelor’s degree in Jordan, where I built a strong
+               foundation in both traditional and digital art. Over the years,
+               I’ve cultivated a diverse skill set that allows me to approach
+               design with both creativity and precision. I also hold a Master’s
+               degree in Business Administration, which empowers me to combine
+               creative expertise with strategic leadership in the design field.
           </p>
 
           <div class="bio-info">
@@ -107,11 +110,9 @@
     </div>
 
     <div class="card">
-      <h2>04.<br /><span>Photography</span></h2>
+      <h2>04.<br /><span>Leadership</span></h2>
       <p>
-        With a keen eye for detail, I capture moments and scenes that tell a story. My photography
-        work spans from portraits to landscapes, blending creativity with technical skill to
-        produce impactful visuals.
+        I lead a team of seven designers, balancing creative freedom with clear direction to deliver cohesive, impactful work.
       </p>
       <div class="divider"></div>
     </div>
@@ -245,14 +246,14 @@
       />
     </div>
     <div
-      class="load-more"
+      class="load-more-posts"
       *ngIf="Posts.length > initialCount && !showAllPosts"
     >
       <button (click)="loadMorePosts()">
         <i class="fas fa-chevron-down"></i>
       </button>
     </div>
-    <div class="show-less" *ngIf="showAllPosts && Posts.length > initialCount">
+    <div class="show-less-posts" *ngIf="showAllPosts && Posts.length > initialCount">
              <button (click)="showLessPosts()">
                <i class="fas fa-chevron-up"></i>
              </button>

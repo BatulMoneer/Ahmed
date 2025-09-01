@@ -41,7 +41,7 @@ export class HomepageComponent implements OnInit {
   // skills
   skills = [
     { image: '../../../assets/images/Ai.png', label: 'Adobe Illustrator', percent: 100 },
-    { image: '../../../assets/images/Id.png', label: 'Adobe Indesign', percent: 100 },
+    { image: '../../../assets/images/Id.png', label: 'Adobe Indesign', percent: 70 },
     { image: '../../../assets/images/Fig.png', label: 'Figma', percent: 80 },
     { image: '../../../assets/images/Ps.png', label: 'Adobe Photoshop', percent: 90 },
     { image: '../../../assets/images/Pr.png', label: 'Adobe Premiere', percent: 40 }
@@ -82,7 +82,12 @@ export class HomepageComponent implements OnInit {
     { image: '../../../assets/images/IG (20).png' },
     { image: '../../../assets/images/IG (21).png' },
     { image: '../../../assets/images/IG (22).png' },
-    { image: '../../../assets/images/IG (23).png' }
+    { image: '../../../assets/images/IG (23).png' },
+    { image: '../../../assets/images/IG (24).png' },
+    { image: '../../../assets/images/IG (25).jpg' },
+    { image: '../../../assets/images/IG (26).jpg' },
+    { image: '../../../assets/images/IG (27).png' },
+    { image: '../../../assets/images/IG (28).jpg' }
   ];
 
   currentIGIndex = 0;
