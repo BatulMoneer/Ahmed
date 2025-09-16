@@ -41,7 +41,7 @@ export class HomepageComponent implements OnInit {
   // skills
   skills = [
     { image: '../../../assets/images/Ai.png', label: 'Adobe Illustrator', percent: 100 },
-    { image: '../../../assets/images/Id.png', label: 'Adobe Indesign', percent: 70 },
+    { image: '../../../assets/images/Id.png', label: 'Adobe Indesign', percent: 90 },
     { image: '../../../assets/images/Fig.png', label: 'Figma', percent: 80 },
     { image: '../../../assets/images/Ps.png', label: 'Adobe Photoshop', percent: 90 },
     { image: '../../../assets/images/Pr.png', label: 'Adobe Premiere', percent: 40 }
